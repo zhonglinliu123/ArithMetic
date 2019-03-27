@@ -1,16 +1,16 @@
 package arrayImp;
 
-public class ArrayImp {
-	public Task[] taskarr = new Task[10];  //Ä¬ÈÏÊÇ10
-	public ArrayImp() {}
-	public ArrayImp(int i) {
+public class Cache {
+	public Task[] taskarr = new Task[10];  //é»˜è®¤æ˜¯10
+	public Cache() {}
+	public Cache(int i) {
 		 taskarr = new Task[i];
 	}
 	public void add(String str) {
 		for(int i=0;i<taskarr.length;i++) {
-			if(taskarr[i]==null) {   //Êı×éÃ»Âú
+			if(taskarr[i]==null) {   //æ•°ç»„æ²¡æ»¡
 				taskarr[i]=new Task(str,0);
-				//ÆäËûµÄnumber++
+				//å…¶ä»–çš„number++
 				for(int j=0;j<taskarr.length;j++) {
 					if(j!=i && taskarr[j]!=null) {
 						taskarr[j].setNumber(taskarr[j].getNumber()+1);
@@ -19,7 +19,7 @@ public class ArrayImp {
 				return;
 			}
 		}
-		// Êı×éÂúÁË£¬É¾³ı×î´óµÄnumber
+		// æ•°ç»„æ»¡äº†ï¼Œåˆ é™¤æœ€å¤§çš„number
 		int max = taskarr[0].getNumber();
 		int num = 0;
 		for(int i=1;i<taskarr.length;i++) {
@@ -29,54 +29,54 @@ public class ArrayImp {
 			}
 		}
 		taskarr[num]=new Task(str,0);
-		//ÆäËûµÄnumber++
+		//å…¶ä»–çš„number++
 		for(int i=0;i<taskarr.length;i++) {
 			if(i!=num && taskarr[i]!=null) {
 				taskarr[i].setNumber(taskarr[i].getNumber()+1);
 			}
 		}
 	}
-	//·ÃÎÊÖ¸¶¨ÏÂ±êµÄ×Ö·û´®
+	//è®¿é—®æŒ‡å®šä¸‹æ ‡çš„å­—ç¬¦ä¸²
 	public String find(int i) {
 		String str = null;
 		for(int j=0;j<taskarr.length;j++) {
 			if(i!=j && taskarr[j]!=null) {
-				taskarr[j].setNumber(taskarr[j].getNumber()+1);   //²»ÊÇi,++
+				taskarr[j].setNumber(taskarr[j].getNumber()+1);   //ä¸æ˜¯i,++
 			}else if(i==j && taskarr[i]!=null){
-				taskarr[i].setNumber(0);   //½«iÉèÖÃÎª0
+				taskarr[i].setNumber(0);   //å°†iè®¾ç½®ä¸º0
 				str=taskarr[i].getValue();
 			}
 		}
 		return str;
 	}
-	// ·µ»ØÖ¸¶¨×Ö·û´®µÄÏÂ±ê
+	// è¿”å›æŒ‡å®šå­—ç¬¦ä¸²çš„ä¸‹æ ‡
 	public int find(String str) {
 		int f = -1;
 		for(int i=0;i<taskarr.length;i++) {
 			if(taskarr[i]!=null && str.equals(taskarr[i].getValue())) {
-				taskarr[i].setNumber(0);   //½«iÉèÖÃÎª0
+				taskarr[i].setNumber(0);   //å°†iè®¾ç½®ä¸º0
 				f = i;
 			}else if(taskarr[i]!=null && !str.equals(taskarr[i].getValue())){
-				taskarr[i].setNumber(taskarr[i].getNumber()+1);   //²»ÊÇi,++
+				taskarr[i].setNumber(taskarr[i].getNumber()+1);   //ä¸æ˜¯i,++
 			}
 		}
 		return f;
 	}
-	//ĞŞ¸Ä
+	//ä¿®æ”¹
 	public void change(int i,String str) {
 		for(int j=0;j<taskarr.length;j++) {
 			if(i!=j && taskarr[j]!=null ) {
-				taskarr[j].setNumber(taskarr[j].getNumber()+1);   //²»ÊÇi,++
+				taskarr[j].setNumber(taskarr[j].getNumber()+1);   //ä¸æ˜¯i,++
 			}else {
 				taskarr[i]=new Task(str,0);
 			}
 		}
 	}
-	//É¾³ı
+	//åˆ é™¤
 	public void delete(int i) {
 		for(int j=0;j<taskarr.length;j++) {
 			if(i!=j && taskarr[j]!=null ) {
-				taskarr[j].setNumber(taskarr[j].getNumber()+1);   //²»ÊÇi,++
+				taskarr[j].setNumber(taskarr[j].getNumber()+1);   //ä¸æ˜¯i,++
 			}else {
 				taskarr[i]=null;  
 			}
