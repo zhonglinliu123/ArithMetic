@@ -2,10 +2,12 @@ package listImp;
 
 public class Cache {
 	private Task head = null; //头结点
-	private int capacity = 10;  //默认容量
+	private int capacity;  
 	private int length = 0;
 	
-	public Cache() {}
+	public Cache() {
+		capacity = 10;  //默认容量
+	}
 	public Cache(int capacity) {
 		this.capacity=capacity;
 	}
@@ -104,6 +106,7 @@ public class Cache {
 			beforetemp.next=temp.next;
 		}	
 		head=head.next;
+		this.length--;
 	}
 	//遍历
 	public void bianli() {

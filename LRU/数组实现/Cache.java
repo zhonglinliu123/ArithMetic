@@ -1,8 +1,10 @@
 package arrayImp;
 
 public class Cache {
-	public Task[] taskarr = new Task[10];  //默认是10
-	public Cache() {}
+	public Task[] taskarr = null;  
+	public Cache() {
+		taskarr = new Task[10];  //默认是10
+	}
 	public Cache(int i) {
 		 taskarr = new Task[i];
 	}
