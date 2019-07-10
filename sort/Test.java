@@ -16,8 +16,11 @@ public class Test {
 //		xuanze.upSort(arr);
 //		xuanze.downSort(arr);
 		
-		ChaRu cr = new ChaRu();
-		cr.upSort(arr);
+//		ChaRu cr = new ChaRu();
+//		cr.upSort(arr);
+		
+		Quick quick = new Quick();
+		quick.upSort(arr, 0, arr.length-1);
 		
 		for(int i=0; i<arr.length; i++) {
 			System.out.print(arr[i]+",");
